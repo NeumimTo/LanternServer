@@ -33,12 +33,12 @@ import org.spongepowered.api.block.trait.BooleanTrait;
 import org.spongepowered.api.data.key.Key;
 import org.spongepowered.api.data.value.mutable.Value;
 
-public final class LanternBooleanTrait extends LanternBlockTrait<Boolean> implements BooleanTrait {
+public final class LanternBooleanTrait extends LanternBlockTrait<Boolean, Boolean> implements BooleanTrait {
 
     private final static ImmutableSet<Boolean> STATES = ImmutableSet.of(true, false);
 
     private LanternBooleanTrait(String name, Key<? extends Value<Boolean>> key) {
-        super(name, key, Boolean.class, STATES);
+        super(name, key, Boolean.class, STATES, null);
     }
 
     /**
@@ -51,5 +51,4 @@ public final class LanternBooleanTrait extends LanternBlockTrait<Boolean> implem
     public static BooleanTrait of(String name, Key<? extends Value<Boolean>> key) {
         return new LanternBooleanTrait(checkNotNullOrEmpty(name, "name"), checkNotNull(key, "key"));
     }
-
 }
